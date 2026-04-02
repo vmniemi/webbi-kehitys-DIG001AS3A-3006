@@ -8,7 +8,7 @@ find . -type f -name "*.cpp" | grep -q . && echo "- C++"
 find . -type f -name "*.cs" | grep -q . && echo "- C#"
 find . -type f -name "*.rb" | grep -q . && echo "- Ruby"
 find . -type f -name "*.go" | grep -q . && echo "- Go"
-find . -type f -name "*.php" | grep -q . && echo "- PHP
+find . -type f -name "*.php" | grep -q . && echo "- PHP"
 
 
 echo "Löydetyt suunnittelumallit:" > analysis_report.md
