@@ -10,6 +10,11 @@ find . -type f -name "*.rb" | grep -q . && echo "- Ruby"
 find . -type f -name "*.go" | grep -q . && echo "- Go"
 find . -type f -name "*.php" | grep -q . && echo "- PHP"
 
+echo "Myös havaittu:"
+find . -type f -name "*.css" | grep -q . && echo "- CSS"
+find . -type f -name "*.html" | grep -q . && echo "- HTML"
+
+
 
 echo "Löydetyt suunnittelumallit:" > analysis_report.md
 grep -R "getInstance" -n . && echo "- Singleton" >> analysis_report.md
