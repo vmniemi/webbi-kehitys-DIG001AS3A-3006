@@ -14,7 +14,7 @@ const ANIMALS = [
   "Gecko", "Raven", "Moose", "Bison", "Lynx", "Orca"
 ];
 
-const KEY = "codename";
+const KEY = "user_codename";
 
 function randomItem(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
@@ -47,17 +47,17 @@ export default function App() {
     setStep("login");
   }
 
-function handleLogin() {
-  let saved = localStorage.getItem(KEY);
+  function handleLogin() {
+    let saved = localStorage.getItem(KEY);
 
-  if (!saved) {
-    saved = generateCodename();
-    localStorage.setItem(KEY, saved);
+    if (!saved) {
+      saved = generateCodename();
+      localStorage.setItem(KEY, saved);
+    }
+
+    setCodename(saved);
+    setStep("dashboard");
   }
-
-  setCodename(saved);
-  setStep("dashboard");
-}
 
   function handleLogout() {
     setStep("login");
