@@ -27,10 +27,10 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h2>Kirjaudu sisään</h2>
+      <h2>Log in</h2>
 
       <div>
-        <label>Sähköposti</label>
+        <label>Email</label>
         <input
           type="email"
           value={email}
@@ -40,7 +40,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
       </div>
 
       <div>
-        <label>Salasana</label>
+        <label>Password</label>
         <input
           type="password"
           value={password}
@@ -52,7 +52,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
       {error && <p style={{ color: "red" }}>{error}</p>}
 
       <button type="submit" disabled={loading}>
-        {loading ? "Kirjaudutaan..." : "Kirjaudu"}
+        {loading ? "Loading..." : "Log in"}
       </button>
     </form>
   );
