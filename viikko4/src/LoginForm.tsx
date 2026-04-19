@@ -18,7 +18,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
       if (err instanceof Error) {
         setError(err.message);
       } else {
-        setError("Tuntematon virhe");
+        setError("Unknown error occurred");
       }
     } finally {
       setLoading(false);
@@ -26,35 +26,39 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>Log in</h2>
+    <form onSubmit={handleSubmit} className="form">
+  <h2>Log in</h2>
 
-      <div>
-        <label>Email</label>
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-      </div>
+  <div className="form-group">
+    <label>Email</label>
+    <input
+      type="email"
+      value={email}
+      onChange={(e) => setEmail(e.target.value)}
+      required
+      disabled={loading}
+    />
+  </div>
 
-      <div>
-        <label>Password</label>
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-      </div>
+  <div className="form-group">
+    <label>Password</label>
+    <input
+      type="password"
+      value={password}
+      onChange={(e) => setPassword(e.target.value)}
+      required
+      disabled={loading}
+    />
+  </div>
 
-      {error && <p style={{ color: "red" }}>{error}</p>}
+  {error && <p className="error">{error}</p>}
 
-      <button type="submit" disabled={loading}>
-        {loading ? "Loading..." : "Log in"}
-      </button>
-    </form>
+  <button type="submit" className="button" disabled={loading}>
+    Login
+  </button>
+
+  
+</form>
   );
 };
 

@@ -94,6 +94,41 @@ p {
   margin-bottom: 20px;
 }
 
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 16px; /* equal spacing between email & password */
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #bcccdc;
+  font-size: 1rem;
+}
+
+
+.form button {
+  margin-top: 12px;
+}
+
+
+.button + .button {
+  margin-top: 8px;
+}
+
+
+
 
 @keyframes fadeIn {
   from {
