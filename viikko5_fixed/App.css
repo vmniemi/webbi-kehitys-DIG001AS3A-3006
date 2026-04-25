@@ -1,0 +1,37 @@
+.app {
+  max-width: 760px;
+  margin: 60px auto;
+  padding: 20px;
+}
+
+.card,
+.quiz-card,
+.result-card {
+  background: white;
+  border: 1px solid #bcccdc;
+  border-radius: 14px;
+  padding: 24px;
+  margin-top: 20px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+}
+
+button {
+  margin-top: 12px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #bcccdc;
+  cursor: pointer;
+}
+
+input {
+  display: block;
+  width: 100%;
+  max-width: 280px;
+  padding: 10px;
+  margin-top: 8px;
+  margin-bottom: 12px;
+}
+
+.error {
+  color: #b00020;
+}
