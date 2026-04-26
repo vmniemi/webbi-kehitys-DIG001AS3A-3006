@@ -2,6 +2,36 @@ import { type Session } from "./types/Session";
 import { fetchRandomProduct } from "./productService";
 import { saveSession, getSession } from "./gameSessionService";
 
+export async function resetGame(): Promise<void> {
+  const session = await getSession();
+  if (!session) return;
+
+  const resetSession: Session = {
+    ...session,
+    status: "waiting",
+    currentRound: 1,
+    currentProduct: null,
+    correctPrice: null,
+    winnerCodename: null,
+    players: session.players.map((player) => ({
+      ...player,
+      score: 0,
+      guess: null,
+    })),
+  };
+
+  await saveSession(resetSession);
+}
+
+export async function clearPlayers(): Promise<void> {
+  const session = await getSession();
+  if (!session) return;
+
+  await saveSession({
+    ...session,
+    players: [],
+  });
+}
 export async function startGameIfPossible(session: Session): Promise<void> {
   if (session.status !== "waiting") return;
   if (session.players.length < 2) {
