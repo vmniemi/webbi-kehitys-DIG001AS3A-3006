@@ -28,45 +28,46 @@ function App() {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    const unsubscribeAuth = onAuthStateChanged(auth, async (firebaseUser) => {
-      setUser(firebaseUser);
-      setError("");
+  const unsubscribeAuth = onAuthStateChanged(auth, async (firebaseUser) => {
+    setUser(firebaseUser);
+    setError("");
 
-      if (!firebaseUser) {
-        setCodename("");
-        setSession(null);
-        return;
-      }
+    if (!firebaseUser) {
+      setCodename("");
+      setSession(null);
+      return;
+    }
 
-      try {
-        const name = getOrCreateCodename(firebaseUser.uid);
-        setCodename(name);
+    try {
+      const name = getOrCreateCodename(firebaseUser.uid);
+      setCodename(name);
 
-        await createSession();
+      await createSession();
 
-        const player: Player = {
-          uid: firebaseUser.uid,
-          codename: name,
-          score: 0,
-          guess: null,
-        };
+      await joinSession({
+        uid: firebaseUser.uid,
+        codename: name,
+        score: 0,
+        guess: null,
+      });
+    } catch (err) {
+      console.error("Peliin liittyminen epäonnistui:", err);
+      setError("Peliin liittyminen epäonnistui.");
+    }
+  });
 
-        await joinSession(player);
-      } catch (err) {
-        console.error(err);
-        setError("Peliin liittyminen epäonnistui.");
-      }
-    });
+  return () => unsubscribeAuth();
+}, []);
 
-    const unsubscribeSession = subscribeSession((updatedSession) => {
-      setSession(updatedSession);
-    });
+useEffect(() => {
+  if (!user) return;
 
-    return () => {
-      unsubscribeAuth();
-      unsubscribeSession();
-    };
-  }, []);
+  const unsubscribeSession = subscribeSession((updatedSession) => {
+    setSession(updatedSession);
+  });
+
+  return () => unsubscribeSession();
+}, [user]);
 
   async function handleStartGame() {
     if (!session) return;
