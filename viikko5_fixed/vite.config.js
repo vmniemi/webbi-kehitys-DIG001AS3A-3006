@@ -5,6 +5,6 @@ export default defineConfig({
   plugins: [react()],
   base:
     process.env.NODE_ENV === "production"
-      ? "/webbi-kehitys-DIG001AS3A-3006/viikko5_fixed/"
+      ? "/webbi-kehitys-DIG001AS3A-3006/viikko5-site/"
       : "/",
 });
