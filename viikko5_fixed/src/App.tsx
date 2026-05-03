@@ -2,7 +2,9 @@ import { useEffect, useRef, useState } from "react";
 import "./App.css";
 
 import LoginForm from "./LoginForm";
-import ConsentBanner from "./components/ConsentBanner";
+import ConsentBanner, {
+  resetAnalyticsConsent,
+} from "./components/ConsentBanner";
 
 import { auth, logout } from "./authService";
 import { onAuthStateChanged, type User } from "firebase/auth";
@@ -169,6 +171,10 @@ function App() {
 
               <button type="button" onClick={logout}>
                 Kirjaudu ulos
+              </button>
+
+              <button type="button" onClick={resetAnalyticsConsent}>
+                Näytä analytiikkabanneri uudestaan
               </button>
 
               {!session ? (

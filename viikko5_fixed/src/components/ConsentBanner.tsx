@@ -10,6 +10,15 @@ function setConsent(value: boolean) {
   localStorage.setItem("consent", value.toString());
 }
 
+export function hasAnalyticsConsent(): boolean {
+  return localStorage.getItem("consent") === "true";
+}
+
+export function resetAnalyticsConsent() {
+  localStorage.removeItem("consent");
+  window.location.reload();
+}
+
 export default function ConsentBanner() {
   if (getConsent() !== null) return null;
 
@@ -31,22 +40,14 @@ export default function ConsentBanner() {
       </p>
 
       <div className="consent-actions">
-        <button onClick={acceptAnalytics}>Hyväksy analytiikka</button>
-        <button onClick={declineAnalytics}>Hylkää</button>
+        <button type="button" onClick={acceptAnalytics}>
+          Hyväksy analytiikka
+        </button>
+
+        <button type="button" onClick={declineAnalytics}>
+          Hylkää
+        </button>
       </div>
     </div>
   );
-}
-<button
-  type="button"
-  onClick={() => {
-    localStorage.removeItem("consent");
-    window.location.reload();
-  }}
->
-  Näytä analytiikkabanneri uudestaan
-</button>
-
-export function hasAnalyticsConsent(): boolean {
-  return localStorage.getItem("consent") === "true";
 }
