@@ -37,6 +37,15 @@ export default function ConsentBanner() {
     </div>
   );
 }
+<button
+  type="button"
+  onClick={() => {
+    localStorage.removeItem("consent");
+    window.location.reload();
+  }}
+>
+  Näytä analytiikkabanneri uudestaan
+</button>
 
 export function hasAnalyticsConsent(): boolean {
   return localStorage.getItem("consent") === "true";

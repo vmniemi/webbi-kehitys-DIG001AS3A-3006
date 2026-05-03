@@ -136,19 +136,19 @@
         Analytiikan avulla voidaan arvioida sovelluksen teknistä toimivuutta ja
         käytettävyyttä. Sen avulla voidaan esimerkiksi nähdä, kuinka moni käyttäjä
         avaa sovelluksen, kirjautuu sisään, aloittaa pelin, lähettää arvauksen ja
-        pelaa pelin loppuun asti.
+        pelaa pelin loppuun asti. Analyytikalla sivua voi optimoida paremmin kun dataa on enemmän.
       </p>
 
       <ul>
         <li>Käyttäjämäärien ja sivulatausten seuraaminen</li>
-        <li>Sovelluksen eri vaiheiden käytön tarkastelu</li>
         <li>Käyttöliittymän ongelmakohtien tunnistaminen</li>
         <li>Teknisen toimivuuden arviointi eri selaimilla ja laitteilla</li>
       </ul>
 
       <div class="highlight">
-        Jos moni käyttäjä jää esimerkiksi odottamaan pelaajia eikä aloita peliä,
-        analytiikka voi paljastaa, että käyttöliittymä tai pelin aloituslogiikka
+        Analytiikan avulla voidaan tunnistaa, jos jokin vaihe sovelluksessa aiheuttaa ongelmia. 
+        Esimerkiksi jos on tilanne, jossa moni käyttäjä jää odottamaan pelaajia eikä peli käynnisty.
+        Tässä tilanteesssa analytiikka voi paljastaa, että käyttöliittymä tai pelin aloituslogiikka
         vaatii selkeyttämistä.
       </div>
 
@@ -163,9 +163,7 @@
 
       <ul>
         <li>Käytä <code>npm run dev</code> kehityksessä</li>
-        <li>Älä avaa React-sovelluksen <code>index.html</code>-tiedostoa suoraan levyltä</li>
         <li>Käytä API-rajapintoja, jotka sallivat selainpyynnöt</li>
-        <li>Lisää Firebaseen oikea authorized domain, kuten <code>vmniemi.github.io</code></li>
         <li>Käytä tarvittaessa omaa backend- tai proxy-ratkaisua ulkoisiin API-kutsuihin</li>
       </ul>
 
