@@ -31,7 +31,7 @@ export default function ConsentBanner() {
     setConsent(false);
     window.location.reload();
   };
-
+console.log("Consent value:", localStorage.getItem("consent"));
   return (
     <div className="consent-banner">
       <p>
